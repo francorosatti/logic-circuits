@@ -15,3 +15,6 @@ have up to 8 different pages.
 ## Software
 For simplicity I used Arduino's language and its IDE.
 A strategy pattern has been used for selecting the circuit.
+
+## Stakeholders
+- Franco Rosatti
