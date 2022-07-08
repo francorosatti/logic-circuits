@@ -75,7 +75,7 @@ bool buttonRead(Button button) {
     return buttonState == restValue ? false : true;
 }
 
-LevelFunc levels[] = {levelWire, levelNot, levelAnd, levelOr, levelXor, levelLatch, levelWire, levelWire};
+LevelFunc levels[] = {levelWire, levelNot, levelAnd, levelOr, levelXor, levelLatch, levelNoop, levelNoop};
 
 LevelFunc getLevel(int sensorA, int sensorB, int sensorC) {
     int P0 = sensorA > 1000 ? 1 : 0;
@@ -85,6 +85,11 @@ LevelFunc getLevel(int sensorA, int sensorB, int sensorC) {
     int levelSelector = 4*P2 + 2*P1 + P0;
 
     return levels[levelSelector];
+}
+
+bool levelNoop(const bool inputA, const bool inputB) {
+  Serial.println("noop");
+  return false;
 }
 
 bool levelWire(const bool inputA, const bool inputB) {
